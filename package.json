@@ -1,0 +1,26 @@
+{
+  "name": "resettle.github.io",
+  "description": "The landing page for Resettle's GitHub organization.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter='./apps/*' build",
+    "dev": "pnpm --parallel --filter='./apps/*' dev",
+    "test": "pnpm --filter '*' test"
+  },
+  "devDependencies": {
+    "@dotenvx/dotenvx": "1.51.4",
+    "prettier": "3.7.4",
+    "prettier-plugin-tailwindcss": "0.7.2",
+    "tsx": "4.21.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "esbuild",
+      "sharp",
+      "vue-demi"
+    ]
+  },
+  "packageManager": "pnpm@10.26.2+sha512.0e308ff2005fc7410366f154f625f6631ab2b16b1d2e70238444dd6ae9d630a8482d92a451144debc492416896ed16f7b114a86ec68b8404b2443869e68ffda6"
+}
