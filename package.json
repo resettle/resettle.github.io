@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm --filter='./apps/*' build",
+    "build:pages": "pnpm --filter='./apps/*' build:pages",
     "dev": "pnpm --parallel --filter='./apps/*' dev",
     "test": "pnpm --filter '*' test"
   },

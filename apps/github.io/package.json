@@ -5,6 +5,7 @@
   "scripts": {
     "typegen": "dotenvx-typegen -f ../../.env -i 'VITE_'",
     "typegen:production": "dotenvx-typegen -f ../../.env.production -i 'VITE_'",
+    "build:pages": "pnpm typecheck && react-router build",
     "dev": "dotenvx run -f ../../.env --overload -- react-router dev",
     "dev:production": "dotenvx run -f ../../.env.production --overload -- react-router dev",
     "typecheck": "react-router typegen && tsc -b",
