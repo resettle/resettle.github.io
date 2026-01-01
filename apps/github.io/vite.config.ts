@@ -8,5 +8,23 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5174,
   },
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  plugins: [
+    tailwindcss(),
+    reactRouter(),
+    tsconfigPaths({ projectDiscovery: 'lazy' }),
+  ],
+  build: {
+    rollupOptions: {
+      onwarn(warning, warn) {
+        if (
+          warning.code === 'MODULE_LEVEL_DIRECTIVE' ||
+          warning.code === 'SOURCEMAP_ERROR'
+        ) {
+          return
+        }
+
+        warn(warning)
+      },
+    },
+  },
 })
