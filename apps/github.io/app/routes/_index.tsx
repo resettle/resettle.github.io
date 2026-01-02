@@ -59,6 +59,7 @@ export default function Developer() {
       <section className="z-10 mx-auto w-full max-w-7xl px-4 pb-20">
         <div className="grid gap-8 md:grid-cols-2">
           <ApiProductCard
+            key="place"
             slug="place"
             title="Place API & SDK"
             icon={
@@ -97,6 +98,7 @@ export default function Developer() {
             ]}
           />
           <ApiProductCard
+            key="occupation"
             slug="occupation"
             title="Occupation API & SDK"
             icon={
@@ -133,6 +135,7 @@ export default function Developer() {
             ]}
           />
           <ApiProductCard
+            key="skill"
             slug="skill"
             title="Skill Taxonomy API"
             description="Integrate complete & standardized skill taxonomy"
@@ -169,6 +172,7 @@ export default function Developer() {
             color="orange"
           />
           <ApiProductCard
+            key="university"
             slug="university-ranking"
             title="University Ranking API"
             description="Access unified & standardized university rankings"
@@ -204,6 +208,7 @@ export default function Developer() {
             color="purple"
           />
           <ApiProductCard
+            key="exchange"
             slug="exchange-rate"
             title="Exchange Rate API"
             description="Access exchange rate by time and currency"

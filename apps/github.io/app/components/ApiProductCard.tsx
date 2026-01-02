@@ -63,7 +63,7 @@ export default function ApiProductCard({
           </Button>
         </div>
         <div className="mt-auto">
-          <Button asChild size="lg" className="w-full">
+          <Button asChild size="lg" variant="outline" className="w-full">
             <Link to={`/doc#${slug}`}>
               View Documentation
               <ArrowRightIcon className="ml-2 h-4 w-4" />
