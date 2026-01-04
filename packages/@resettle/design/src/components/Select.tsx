@@ -52,9 +52,11 @@ type SelectProps<T> = VariantProps<typeof selectVariants> & {
   rowHeight?: number
   searchable?: boolean
   searchPlaceholder?: string
+  debounceTimeout?: number
   options: SelectOption<T>[]
   value?: T | null | undefined
   onChange: (value: T) => void
+  onDebounced?: (keyword: string) => void
   renderOption?: (option: SelectOption<T>) => React.ReactNode
   renderSelectValue?: (
     selectedOption: SelectOption<T> | null | undefined,
@@ -72,9 +74,11 @@ function Select<T>({
   rowHeight = 36,
   searchable = false,
   searchPlaceholder = 'Search...',
+  debounceTimeout = 300,
   options,
   value,
   onChange,
+  onDebounced,
   renderOption = option => option.label,
   renderSelectValue = selectedOption => selectedOption?.label || placeholder,
   ...props
@@ -87,7 +91,7 @@ function Select<T>({
   const scrollContainerRef = React.useRef<HTMLDivElement>(null)
   const selectedItemRef = React.useRef<HTMLDivElement>(null)
 
-  const debouncedKeyword = useDebouncedValue(keyword, 300)
+  const debouncedKeyword = useDebouncedValue(keyword, debounceTimeout)
 
   const handleSelect = (optionValue: T) => {
     onChange(optionValue)
@@ -145,6 +149,10 @@ function Select<T>({
       })
     }
   }, [open])
+
+  React.useEffect(() => {
+    onDebounced && Boolean(debouncedKeyword) && onDebounced(debouncedKeyword)
+  }, [debouncedKeyword])
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
