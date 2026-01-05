@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "typegen": "dotenvx-typegen -f ../../.env -i 'VITE_'",
-    "typegen:production": "dotenvx-typegen -f ../../.env.production -i 'VITE_'",
+    "typegen": "react-router typegen && dotenvx-typegen -f ../../.env -i 'VITE_'",
+    "typegen:production": "react-router typegen && dotenvx-typegen -f ../../.env.production -i 'VITE_'",
     "build:pages": "pnpm typecheck && dotenvx run -f ../../.env.production --overload -- react-router build",
     "dev": "dotenvx run -f ../../.env --overload -- react-router dev",
     "dev:production": "dotenvx run -f ../../.env.production --overload -- react-router dev",
